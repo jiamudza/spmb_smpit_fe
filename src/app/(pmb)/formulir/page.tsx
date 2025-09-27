@@ -221,7 +221,7 @@ const RegistForm = () => {
                                             className='mr-2' />
                                         <label htmlFor="internasional" className='text-xs'>Boarding</label>
                                     </div>
-                                    <a href='https://www.kompas.com' target='blank' className='bg-primary text-white text-[10px] lg:text-sm font-semibold rounded-md p-2 w-30 text-center overflow-hidden'>Apa Bedanya?</a>
+                                    <a href='/program' target='blank' className='bg-primary text-white text-[10px] lg:text-sm font-semibold rounded-md p-2 w-30 text-center overflow-hidden'>Apa Bedanya?</a>
 
                                 </div>
                                 <div className='mt-5'>
