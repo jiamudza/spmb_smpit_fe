@@ -1,8 +1,10 @@
 'use client'
 import axios from 'axios';
 import React, { useState } from 'react'
+import { useRouter } from 'next/navigation';
 
 const RegistForm = () => {
+    const router = useRouter();
     const [salary, setSalary] = useState("");
     const options = [
         { value: "0", label: "Tidak Berpenghasilan" },
@@ -60,7 +62,7 @@ const RegistForm = () => {
     axios.post('https://spmb-smpit-albanna.vercel.app/students', dataToSend)
       .then(res => {
         console.log('Success:', res.data);
-        alert('Student data submitted!');
+        router.push('/terimakasih'); // Redirect to success page
       })
       .catch(err => {
         console.error('Error POST:', err.response?.data || err.message);
