@@ -1,1 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @import "tailwindcss";
+
+
+@layer utilities {
+    .text-outline {
+        -webkit-text-stroke: 1.5px #6B4BAC;
+    }
+}
+
+@theme {
+    --color-secondary: #9E6FD5;
+    --color-third: #C7B7EB;
+    --color-accent: #B7A5DB;
+    --color-primary: #6B4BAC;
+    --color-text: #706d75;
+    --color-placeholder: #D4D3D8;
+    --color-background: #f6f9ff;
+    --font-poppins: "Poppins", sans serif
+
+}
+
+@layer base {
+  /* Hilangkan panah number di Chrome, Safari, Edge */
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  input[type="date"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  display: none;
+}
+
+/* --- Firefox (Gecko) --- */
+input[type="date"] {
+  -moz-appearance: textfield; /* hilangkan spinner number di Firefox */
+}
+
+/* Optional: pastikan kalender tetap ada (JANGAN dihilangkan) */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: block;
+  cursor: pointer;
+}
+}
+
+
+select {
+  -webkit-appearance: none; /* Safari & Chrome */
+  -moz-appearance: none;    /* Firefox */
+  appearance: none;         /* Standar */
+}
+
+.absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.absolute-bottom {
+    position: absolute;
+    bottom: 0.001%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+}
+
+.react-calendar {
+  width: 100% !important;
+  border: none !important;
+  font-family: 'Poppins', 'sans serif' !important;
+  border-radius: 20px !important;
+  border: 1px solid #f3f2f7 !important;
+}
+
+.react-calendar__navigation {
+  border-radius: 20px 20px 0 0;
+  overflow: hiden;
+}
+
+/* .react-calendar__tile {
+  flex: none !important;
+  max-width: none !important;
+  border-radius: 50% !important;
+  height: 3vw !important;
+  width: 3vw !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
+  transition: background 0.2s;
+} */
+
+.react-calendar__tile--active {
+  background-color: #c0abeb !important;
+}
+.react-calendar__tile--now {
+  background-color: #ef84d2 !important;
+  color: white !important;
+  /* font-size: 2em !important; */
+}
+
+.react-calendar__navigation__label {
+  font-weight: 600 !important;
+  color: white !important;
+  font-size: 0.9em !important;
+}
+
+.react-calendar__navigation {
+  background-color: #6B4BAC !important;
+  color: white !important;
+  display: flex !important;
+  justify-items: center !important;
+  height: 44px !important;
+  margin-bottom: 1em !important;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  border: none !important;
+}
+
+.react-calendar abbr {
+  text-decoration: none !important;
+  cursor: default !important;
+}
+
+/* .react-calendar__month-view__days__day {
+  flex: none !important;
+  aspect-ratio: 1 / 1;
+  border-radius: 50% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* Container biar center */
+/* ==== TILE (tanggal) ==== */
+.react-calendar__tile {
+  aspect-ratio: 1 / 1;        /* kotak (1:1) */
+  border-radius: 50%;            /* bulat sempurna */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
+  transition: background 0.2s;
+}
+
+/* Warna tile default */
+.react-calendar__tile {
+  background: white;
+  color: #333;
+}
+
+/* Hover */
+.react-calendar__tile:hover {
+  background: #b4eff8 !important;
+}
+
+/* ==== HEADER (hari Minggu-Sabtu) ==== */
+.react-calendar__month-view__weekdays__weekday {
+  text-align: center;
+  padding: 0;
+  font-weight: bold;
+}
+
+/* Supaya align dengan tile */
+.react-calendar__month-view__weekdays {
+  display: grid !important;
+  grid-template-columns: repeat(7, 0.5fr); 
+  padding-inline: 20px;
+}
+
+/* ==== Grid hari ==== */
+.react-calendar__month-view__days {
+  display: grid !important;
+  grid-template-columns: repeat(7, 0.5fr); /* 7 kolom */
+  gap: 2px;
+  padding: 20px 20px;
+}
+
+.react-calendar__navigation__prev2-button {
+  border-radius: 20px 0 0 0 !important;
+}
+
+.react-calendar__navigation__next2-button {
+  border-radius: 0 20px 0 0;
+}
+
+.react-calendar__navigation__label:hover {
+  background-color: #b89dee !important;
+}
+
+.react-calendar__navigation__arrow:hover {
+  background-color: #b89dee !important;
+}
+.react-calendar__navigation__ button {
+  min-width: 44px !important;
+  background: none !important;
+  border: none !important;
+}
+.react-calendar__navigation__arrow {
+  font-size: 1.2em !important;
+  /* font-weight: bold !important; */
+  color: white !important;
+  min-width: 44px;
+}
+
+.recharts-surface:focus {
+  outline: none !important;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+  color:  #dddddd !important;
+}
+
+.rbc-calendar {
+  font-family: 'Poppins', 'sans serif' !important;
+}
+
+.rbc-timeslot-group {
+  color : rgb(63, 9, 90) !important;
+  font-size: 12px !important;
+}
+
+.rbc-calendar-label {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
